@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Food from "../../Models/Food";
 import './Foods.css';
 import {RootState} from "../../stores";
+import foodStore from '../../stores/food.store';
 
 export default function Foods() {
     const foods = useSelector((state: RootState) => state.foods);
@@ -27,7 +28,7 @@ const FoodList = (props: {foods: Food[]}) => {
             {foodsList}
         </div>
     )
-}
+};
 
 const FoodTitleRow = () => (
     <div>
@@ -44,12 +45,12 @@ const FoodTitleRow = () => (
             Energy
         </div>
     </div>
-)
+);
 
 const FoodRow = (props: {food: Food}) => (
     <>
         <div>
-            {props.food.name}
+            {props.food._name}
         </div>
         <div>
             {props.food.protein}
@@ -60,23 +61,30 @@ const FoodRow = (props: {food: Food}) => (
         <div>
             {props.food.energy}
         </div>
+        <div>
+            Foobar: {props.food.foobar()}
+        </div>
     </>
-)
+);
 
 const AddFood = () => {
     const dispatch = useDispatch();
+
     let onClickHandler = () => dispatch(
-        { type: 'ADD_FOOD', payload: {name: "asdf", protein: 1,fiber: 1, energy: 1}})
+        foodStore.actions.addFood(new Food(
+            'asldfkjasld', 1, 1, 1,
+        )),
+    );
 
     return (
-        <div className={"add-food"}>
+        <div className={ 'add-food' }>
             <div>
                 <input/>
                 <input/>
                 <input/>
                 <input/>
             </div>
-            <button onClick={onClickHandler}>+</button>
+            <button onClick={ onClickHandler }>+</button>
         </div>
-    )
-}
+    );
+};
