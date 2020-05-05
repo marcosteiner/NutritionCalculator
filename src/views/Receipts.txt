@@ -1,0 +1,31 @@
+/*import Receipt from "../Models/Receipt";
+import React from "react";
+import {useSelector} from "react-redux";
+import ListGroup from "react-bootstrap/ListGroup";
+import {RootState} from "../stores";
+
+
+
+export const ReceiptsList = () => {
+    const receipts = useSelector((state: RootState) => state.receiptReducer);
+    let receiptList = receipts.map((r: Receipt, index: number) =>
+        <div key={index}>
+            <ReceiptRow receipt={r} index={index}/>
+        </div>)
+    return (
+        <>{receiptList}</>
+    )
+}
+
+function ReceiptRow(prop: {receipt: Receipt, index: number}){
+    return (
+        <>
+            <ListGroup horizontal>
+                <ListGroup.Item>{prop.receipt.name}</ListGroup.Item>
+                <ListGroup.Item>Protein: {prop.receipt.protein()}</ListGroup.Item>
+                <ListGroup.Item>Energy: {prop.receipt.energy()}</ListGroup.Item>
+                <ListGroup.Item>Fiber: {prop.receipt.fiber()}</ListGroup.Item>
+            </ListGroup>
+        </>
+    )
+}*/

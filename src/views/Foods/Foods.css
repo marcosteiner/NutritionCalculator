@@ -1,0 +1,13 @@
+.food-list > div {
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+}
+
+.add-food div {
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+}
+
+.add-food > button {
+    width: 100%;
+}
